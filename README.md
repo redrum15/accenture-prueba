@@ -153,3 +153,30 @@ La API incluye manejo robusto de errores con códigos HTTP apropiados:
 - `404 Not Found`: Recurso no encontrado
 - `422 Unprocessable Entity`: Validación fallida
 - `500 Internal Server Error`: Errores del servidor 
+
+
+## 🏗️ Desplegar IAC
+Dentro de la carpeta iac:
+
+* Crear un bucket de S3 y configurar en el ```provider.tf``` los datos necesarios para el remote state
+* Renombrar ```terraform.tfvars.rename``` por ```terraform.tfvars``` y definir los valores correspondientes
+
+### Establecer credenciales de AWS
+
+```bash
+aws configure
+```
+### Inicializar Terraform
+```bash
+terraform init
+```
+
+### Visualizar cambios
+```bash
+terraform plan
+```
+
+### Aplicar cambios
+```bash
+terraform apply
+```
