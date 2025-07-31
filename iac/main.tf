@@ -3,7 +3,7 @@ module "vpc-acc" {
   name   = "vpc-acc"
 }
 
-module "first_ec2" {
+module "acc-ec2" {
   source           = "./modules/ec2"
   key_name         = var.key_name
   public_subnet_id = module.vpc-acc.public_subnet.id
