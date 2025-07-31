@@ -35,29 +35,25 @@ pip install -r requirements.txt
 La forma más fácil de ejecutar la aplicación es usando Docker:
 
 ```bash
-chmod +x docker-run.sh
-
-./docker-run.sh run
-
-./docker-run.sh dev
-
-./docker-run.sh logs
-
-./docker-run.sh stop
+docker compose -f docker-compose.yml build
+docker compose -f docker-compose.yml up -d
 ```
 
-Para más información sobre Docker, consulta [DOCKER.md](DOCKER.md).
+
+### 🧾 Correr los tests con docker
+```bash
+docker exec accenture-api pytest tests/ -v --tb=short
+```
 
 ### 🔧 Sin Docker
 
-#### Desarrollo
-```bash
-uvicorn app.main:app --reload
-```
-
-#### Producción
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+### 🧾 Correr los tests sin docker
+```bash
+bash run_tests.sh
 ```
 
 ## Documentación de la API
@@ -98,7 +94,6 @@ tests/
 ├── __init__.py
 ├── conftest.py            # Configuración de pruebas
 ├── test_message_controller.py
-├── test_message_service.py
 └── test_message_repository.py
 ```
 
@@ -110,11 +105,14 @@ Crea un nuevo mensaje.
 **Body:**
 ```json
 {
-  "message_id": "msg_123",
-  "session_id": "session_456",
-  "content": "Hola mundo",
-  "timestamp": "2023-12-01T10:00:00Z",
-  "sender": "user"
+  "status": "success"
+  "data": {
+    "message_id": "msg_123",
+    "session_id": "session_456",
+    "content": "Hola mundo",
+    "timestamp": "2023-12-01T10:00:00Z",
+    "sender": "user"
+  }
 }
 ```
 
@@ -127,17 +125,6 @@ Recupera mensajes por sesión con paginación y filtros.
 - `offset`: Número de mensajes a saltar (default: 0)
 - `sender`: Filtrar por remitente ("user" o "system")
 
-## Pruebas
-
-Ejecutar todas las pruebas:
-```bash
-pytest
-```
-
-Ejecutar con cobertura:
-```bash
-pytest --cov=app
-```
 
 ## Tecnologías Utilizadas
 
