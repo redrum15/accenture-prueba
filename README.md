@@ -101,20 +101,13 @@ tests/
 
 ### POST /api/messages
 Crea un nuevo mensaje.
+**Parámetros:**
+- `content`: Contenido del mensaje
+- `message_id`: ID único
+- `sender`: User o system
+- `session_id`: ID único
+- `timestamp`: Timestamp del mensaje
 
-**Body:**
-```json
-{
-  "status": "success"
-  "data": {
-    "message_id": "msg_123",
-    "session_id": "session_456",
-    "content": "Hola mundo",
-    "timestamp": "2023-12-01T10:00:00Z",
-    "sender": "user"
-  }
-}
-```
 
 ### GET /api/messages/{session_id}
 Recupera mensajes por sesión con paginación y filtros.
@@ -124,6 +117,13 @@ Recupera mensajes por sesión con paginación y filtros.
 - `limit`: Número máximo de mensajes (default: 10)
 - `offset`: Número de mensajes a saltar (default: 0)
 - `sender`: Filtrar por remitente ("user" o "system")
+
+
+### GET /api/messages/message/{message_id}
+Recupera mensajes por ID.
+
+**Parámetros:**
+- `message_id`: ID del mensaje
 
 
 ## Tecnologías Utilizadas
