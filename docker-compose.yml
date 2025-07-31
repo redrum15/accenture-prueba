@@ -1,0 +1,23 @@
+services:
+  api:
+    build: .
+    container_name: accenture-api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./chat_messages.db
+      - DEBUG=false
+      - APP_NAME=Accenture Message Processing API
+      - APP_VERSION=1.0.0
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    networks:
+      - accenture-network
+
+networks:
+  accenture-network:
+    driver: bridge
+
+volumes:
+  data: 
