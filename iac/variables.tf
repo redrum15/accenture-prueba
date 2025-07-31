@@ -4,5 +4,5 @@ variable "key_name" {
 }
 
 variable "connection_ip" {
-  type    = string
+  type = string
 }
