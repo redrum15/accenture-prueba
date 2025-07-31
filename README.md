@@ -158,7 +158,7 @@ La API incluye manejo robusto de errores con códigos HTTP apropiados:
 ## 🏗️ Desplegar IAC
 Dentro de la carpeta iac:
 
-* Crear un bucket de S3 y configurar en el ```provider.tf``` los datos necesarios para el remote state
+* Crear un bucket de S3 y configurar el ```provider.tf``` con los datos necesarios para el remote state
 * Renombrar ```terraform.tfvars.rename``` por ```terraform.tfvars``` y definir los valores correspondientes
 
 ### Establecer credenciales de AWS
