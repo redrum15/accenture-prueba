@@ -18,34 +18,19 @@ variable "connection_ip" {
 
 variable "project_name" {
   type    = string
-  default = "Course"
+  default = "accenture-test"
 }
 
 variable "lb_name" {
   type    = string
-  default = "myloadbalancer"
+  default = "acc-lb"
 }
 
-variable "ec2_private_instances_sg_name" {
-  type    = string
-  default = "ec2_private_instances_sg_name"
-}
 
-variable "public_subnet_id_1" {
+variable "public_subnet_id" {
   type = string
 }
 
-variable "public_subnet_id_2" {
-  type = string
-}
-
-variable "private_subnet_id_1" {
-  type = string
-}
-
-variable "private_subnet_id_2" {
-  type = string
-}
 
 variable "key_name" {
   type = string
@@ -74,16 +59,6 @@ variable "environment" {
 variable "app_name" {
   type    = string
   default = "server"
-}
-
-variable "bastionhost_name" {
-  type    = string
-  default = "bastionhost"
-}
-
-variable "bastionhost_sg_name" {
-  type    = string
-  default = "bastionhost_sg"
 }
 
 variable "lb_sg_name" {

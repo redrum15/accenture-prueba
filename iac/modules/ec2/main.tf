@@ -39,7 +39,7 @@ resource "aws_instance" "accenture-instance" {
   ebs_optimized               = false
   associate_public_ip_address = true
   key_name                    = var.key_name
-  subnet_id                   = var.public_subnet_id_1
+  subnet_id                   = var.public_subnet_id
   monitoring                  = true
   vpc_security_group_ids      = [aws_security_group.lb_sg.id]
 
@@ -48,8 +48,4 @@ resource "aws_instance" "accenture-instance" {
     volume_size = var.root_volume_size
     iops        = var.root_iops
   }
-
-  tags = merge(local.common_tags, {
-    Name = "${var.bastionhost_name}-${var.environment}"
-  })
 }

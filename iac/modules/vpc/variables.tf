@@ -5,13 +5,13 @@ variable "environment" {
 
 variable "name" {
   type    = string
-  default = "myfirstvpc"
+  default = "acc_vpc"
 }
 
 
 variable "public_subnet_name" {
   type    = string
-  default = "mypublic_subnet"
+  default = "acc_public_subnet"
 }
 
 
@@ -22,10 +22,10 @@ variable "region_name" {
 
 variable "internet_gateway_name" {
   type    = string
-  default = "myinternet_gateway"
+  default = "acc_internet_gateway"
 }
 
 variable "public_route_table_name" {
   type    = string
-  default = "mypublic_route_table"
+  default = "acc_route_table"
 }
